@@ -1,1 +1,35 @@
-
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nustware - Yönlendiriliyor</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 60px 20px; color: #222; }
+    a { display: inline-block; margin-top: 16px; padding: 12px 24px; background: #01875f; color: #fff; text-decoration: none; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <h2>Uygulamaya yönlendiriliyorsunuz...</h2>
+  <a id="link" href="https://play.google.com/store/apps/developer?id=Nustware">Google Play'de aç</a>
+  <script>
+    var uygulamalar = {
+      "ultrablocks":   "com.nustware.ultrablocks.game",
+      "performans":    "com.nustware.performans",
+      "pdf":           "com.free.pdf",
+      "gununsozu":     "com.gunun.sozu",
+      "tarih":         "com.aksoy.tarih",
+      "islamasistani": "com.islam.asistani",
+      "dersimiztarih": "com.dersimiz.tarih",
+      "islamiduvar":   "com.samiaksoy.islamiduvar"
+    };
+    var ilk = location.pathname.split("/")[1].toLowerCase();
+    var paket = uygulamalar[ilk];
+    var hedef = paket
+      ? "https://play.google.com/store/apps/details?id=" + paket
+      : "https://play.google.com/store/apps/developer?id=Nustware";
+    document.getElementById("link").href = hedef;
+    location.replace(hedef);
+  </script>
+</body>
+</html>
