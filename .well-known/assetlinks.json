@@ -1,82 +1,10 @@
-[
-  {
-    "relation": ["delegate_permission/common.handle_all_urls"],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "com.nustware.ultrablocks.game",
-      "sha256_cert_fingerprints": [
-        "D1:84:6A:B1:39:95:40:BB:E4:73:03:2A:91:5C:57:FC:B2:28:32:68:BD:C7:51:AE:2E:06:71:42:26:F6:22:52:BURAYA_SHA256_KEY_1"
-      ]
-    }
-  },
-  {
-    "relation": ["delegate_permission/common.handle_all_urls"],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "com.nustware.performans",
-      "sha256_cert_fingerprints": [
-        "3C:51:8D:C5:26:38:B9:F1:E0:40:65:2D:11:E2:2D:CF:47:EF:71:2D:C6:60:68:2C:82:5E:06:84:56:04:E8:51:BURAYA_SHA256_KEY_2"
-      ]
-    }
-  },
-  {
-    "relation": ["delegate_permission/common.handle_all_urls"],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "com.free.pdf",
-      "sha256_cert_fingerprints": [
-        "09:90:19:2C:8E:51:A4:CB:F0:2F:17:1D:01:49:3B:7B:80:A1:DF:8B:B4:97:1B:67:43:DC:4B:25:47:AF:58:1A:BURAYA_SHA256_KEY_3"
-      ]
-    }
-  },
-  {
-    "relation": ["delegate_permission/common.handle_all_urls"],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "com.gunun.sozu",
-      "sha256_cert_fingerprints": [
-        "B9:69:13:6F:A4:80:29:D7:3C:BC:BB:51:4B:B6:27:56:EE:A7:43:B6:43:D5:8C:E3:59:14:5B:D5:CA:8F:93:99:BURAYA_SHA256_KEY_4"
-      ]
-    }
-  },
-  {
-    "relation": ["delegate_permission/common.handle_all_urls"],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "com.aksoy.tarih",
-      "sha256_cert_fingerprints": [
-        "F0:A7:CE:F7:E5:07:C5:9C:20:FC:33:33:15:2A:1B:76:BB:6C:7B:5B:00:D4:E4:AD:D5:FC:53:CB:3E:F2:FF:25:BURAYA_SHA256_KEY_5"
-      ]
-    }
-  },
-  {
-    "relation": ["delegate_permission/common.handle_all_urls"],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "com.islam.asistani",
-      "sha256_cert_fingerprints": [
-        "CC:6F:89:9B:DD:03:D4:5D:F6:9E:BD:1B:64:AC:B9:58:0D:82:FD:C9:45:77:F7:8A:44:49:99:FF:AB:07:9E:E0:BURAYA_SHA256_KEY_6"
-      ]
-    }
-  },
-  {
-    "relation": ["delegate_permission/common.handle_all_urls"],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "com.dersimiz.tarih",
-      "sha256_cert_fingerprints": [
-        "67:1A:8E:ED:4C:F2:35:FE:82:56:67:AC:63:57:73:44:86:E9:1B:A0:5D:8E:79:0D:0C:EE:A4:F2:13:B0:20:04:BURAYA_SHA256_KEY_7"
-      ]
-    }
-  },
-  {
-    "relation": ["delegate_permission/common.handle_all_urls"],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "com.samiaksoy.islamiduvar",
-      "sha256_cert_fingerprints": [
-        "25:0C:88:50:B7:ED:8A:6F:74:41:6E:6D:EE:D9:98:C7:4C:90:86:B1:D9:CC:CD:AA:2E:3D:CA:47:C9:C9:76:2B:BURAYA_SHA256_KEY_8"
-      ]
-    }
-  }
-]
+| Link                                      | Uygulama                      |
+| ----------------------------------------- | ----------------------------- |
+| samiaksoy2133.github.io/ultrablocks/...   | com.nustware.ultrablocks.game |
+| samiaksoy2133.github.io/performans/...    | com.nustware.performans       |
+| samiaksoy2133.github.io/pdf/...           | com.free.pdf                  |
+| samiaksoy2133.github.io/gununsozu/...     | com.gunun.sozu                |
+| samiaksoy2133.github.io/tarih/...         | com.aksoy.tarih               |
+| samiaksoy2133.github.io/islamasistani/... | com.islam.asistani            |
+| samiaksoy2133.github.io/dersimiztarih/... | com.dersimiz.tarih            |
+| samiaksoy2133.github.io/islamiduvar/...   | com.samiaksoy.islamiduvar     |
