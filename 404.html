@@ -59,22 +59,46 @@
 
     const link = document.getElementById("link");
     const status = document.getElementById("status");
+    let fallbackTimer = null;
 
     link.href = playStoreUrl;
-    status.textContent = app ? "Uygulama bulunuyor, yönlendiriliyor..." : "Uygulama bulunamadı, geliştirici sayfasına yönlendiriliyor...";
+    status.textContent = app ? "Uygulama bulunuyor, açılıyor..." : "Uygulama bulunamadı, Play Store'a yönlendiriliyor...";
+
+    function stopFallback() {
+      if (fallbackTimer) {
+        clearTimeout(fallbackTimer);
+        fallbackTimer = null;
+      }
+    }
+
+    function startFallback() {
+      stopFallback();
+      fallbackTimer = setTimeout(function () {
+        window.location.replace(playStoreUrl);
+      }, 1500);
+    }
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) {
+        stopFallback();
+      }
+    });
+
+    window.addEventListener("pagehide", function () {
+      stopFallback();
+    });
 
     if (app) {
-      const appUrl = app.scheme || "market://details?id=" + app.packageName;
+      const appUrl = app.scheme + "";
 
+      // Uygulama yüklü ise aç; açıldığında fallback'i durdur.
       try {
         window.location.href = appUrl;
       } catch (error) {
         console.warn("Custom scheme açma denemesi başarısız oldu:", error);
       }
 
-      setTimeout(function () {
-        window.location.href = playStoreUrl;
-      }, 1500);
+      startFallback();
     } else {
       window.location.replace(playStoreUrl);
     }
