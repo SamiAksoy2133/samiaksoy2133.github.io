@@ -5,31 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nustware - Yönlendiriliyor</title>
   <style>
-    body { font-family: Arial, sans-serif; text-align: center; padding: 60px 20px; color: #222; }
-    a { display: inline-block; margin-top: 16px; padding: 12px 24px; background: #01875f; color: #fff; text-decoration: none; border-radius: 8px; }
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 60px 20px;
+      color: #222;
+      background: #f5f5f5;
+    }
+    .card {
+      max-width: 560px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 32px 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+    a {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 12px 24px;
+      background: #01875f;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
-  <h2>Uygulamaya yönlendiriliyorsunuz...</h2>
-  <a id="link" href="https://play.google.com/store/apps/developer?id=Nustware">Google Play'de aç</a>
+  <div class="card">
+    <h2>Uygulamaya yönlendiriliyorsunuz...</h2>
+    <p id="status">Lütfen bekleyin...</p>
+    <a id="link" href="https://play.google.com/store/apps/developer?id=Nustware">Google Play'de aç</a>
+  </div>
+
   <script>
-    var uygulamalar = {
-      "ultrablocks":   "com.nustware.ultrablocks.game",
-      "performans":    "com.nustware.performans",
-      "pdf":           "com.free.pdf",
-      "gununsozu":     "com.gunun.sozu",
-      "tarih":         "com.aksoy.tarih",
-      "islamasistani": "com.islam.asistani",
-      "dersimiztarih": "com.dersimiz.tarih",
-      "islamiduvar":   "com.samiaksoy.islamiduvar"
+    const uygulamalar = {
+      "ultrablocks":   { packageName: "com.nustware.ultrablocks.game", scheme: "ultrablocks://" },
+      "performans":    { packageName: "com.nustware.performans", scheme: "performans://" },
+      "pdf":           { packageName: "com.free.pdf", scheme: "pdf://" },
+      "gununsozu":     { packageName: "com.gunun.sozu", scheme: "gununsozu://" },
+      "tarih":         { packageName: "com.aksoy.tarih", scheme: "tarih://" },
+      "islamasistani": { packageName: "com.islam.asistani", scheme: "islamasistani://" },
+      "dersimiztarih": { packageName: "com.dersimiz.tarih", scheme: "dersimiztarih://" },
+      "islamiduvar":   { packageName: "com.samiaksoy.islamiduvar", scheme: "islamiduvar://" }
     };
-    var ilk = location.pathname.split("/")[1].toLowerCase();
-    var paket = uygulamalar[ilk];
-    var hedef = paket
-      ? "https://play.google.com/store/apps/details?id=" + paket
+
+    const path = (location.pathname || "/").replace(/^\/+|\/+$/g, "").toLowerCase();
+    const app = uygulamalar[path] || null;
+    const playStoreUrl = app
+      ? "https://play.google.com/store/apps/details?id=" + app.packageName
       : "https://play.google.com/store/apps/developer?id=Nustware";
-    document.getElementById("link").href = hedef;
-    location.replace(hedef);
+
+    const link = document.getElementById("link");
+    const status = document.getElementById("status");
+
+    link.href = playStoreUrl;
+    status.textContent = app ? "Uygulama bulunuyor, yönlendiriliyor..." : "Uygulama bulunamadı, geliştirici sayfasına yönlendiriliyor...";
+
+    if (app) {
+      const appUrl = app.scheme || "market://details?id=" + app.packageName;
+
+      try {
+        window.location.href = appUrl;
+      } catch (error) {
+        console.warn("Custom scheme açma denemesi başarısız oldu:", error);
+      }
+
+      setTimeout(function () {
+        window.location.href = playStoreUrl;
+      }, 1500);
+    } else {
+      window.location.replace(playStoreUrl);
+    }
   </script>
 </body>
 </html>
