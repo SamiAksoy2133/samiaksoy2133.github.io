@@ -87,5 +87,23 @@
         "25:0C:88:50:B7:ED:8A:6F:74:41:6E:6D:EE:D9:98:C7:4C:90:86:B1:D9:CC:CD:AA:2E:3D:CA:47:C9:C9:76:2B:BURAYA_SHA256_KEY_8"
       ]
     }
+  },
+
+
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.gunun.sozu",
+      "sha256_cert_fingerprints": [
+        "B9:69:13:6F:A4:80:29:D7:3C:BC:BB:51:4B:B6:27:56:EE:A7:43:B6:43:D5:8C:E3:59:14:5B:D5:CA:8F:93:99"
+      ]
+    }
   }
+
+
+  
 ]
