@@ -30,15 +30,23 @@
       ]
     }
   },
+  [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.gunun.sozu",
       "sha256_cert_fingerprints": [
-        "B9:69:13:6F:A4:80:29:D7:3C:BC:BB:51:4B:B6:27:56:EE:A7:43:B6:43:D5:8C:E3:59:14:5B:D5:CA:8F:93:99:BURAYA_SHA256_KEY_4"
+        "B9:69:13:6F:A4:80:29:D7:3C:BC:BB:51:4B:B6:27:56:EE:A7:43:B6:43:D5:8C:E3:59:14:5B:D5:CA:8F:93:99"
       ]
     }
+  }
+]
+  
+  }
   },
   {
     "relation": ["delegate_permission/common.handle_all_urls"],
