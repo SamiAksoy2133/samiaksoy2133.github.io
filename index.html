@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sami Aksoy | Kişisel Web Sitesi</title>
+  <meta name="description" content="Sami Aksoy kişisel web sitesi ve portfolyo sayfası." />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #121a2b;
+      --panel: #1a2338;
+      --text: #ecf3ff;
+      --muted: #b3c0d9;
+      --primary: #7cc8ff;
+      --secondary: #8ef0c1;
+      --border: rgba(255,255,255,0.08);
+      --shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, var(--bg), #0f172a);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      background: rgba(11, 16, 32, 0.8);
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 72px;
+    }
+
+    .brand {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.3rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 90px 0 40px;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(124, 200, 255, 0.1);
+      border: 1px solid rgba(124, 200, 255, 0.3);
+      color: var(--primary);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 5vw, 4.5rem);
+      line-height: 1.05;
+      margin: 0 0 16px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 620px;
+      margin-bottom: 28px;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 1.4rem;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #5ea8ff);
+      color: #07111d;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.96;
+    }
+
+    .profile-card {
+      background: linear-gradient(180deg, rgba(26,35,56,0.95), rgba(18,26,43,0.95));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .avatar {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #2d425d, #172234);
+      display: grid;
+      place-items: center;
+      font-size: clamp(3rem, 8vw, 5rem);
+      border: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 18px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    section {
+      padding: 36px 0;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      margin-bottom: 18px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 700px;
+      margin-bottom: 22px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+    }
+
+    .chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .chip {
+      background: rgba(142, 240, 193, 0.08);
+      color: var(--secondary);
+      border: 1px solid rgba(142, 240, 193, 0.25);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 0.85rem;
+    }
+
+    .project {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      height: 100%;
+    }
+
+    .project .tag {
+      display: inline-block;
+      width: fit-content;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(124, 200, 255, 0.1);
+      color: var(--primary);
+      border: 1px solid rgba(124, 200, 255, 0.2);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, rgba(124, 200, 255, 0.12), rgba(142, 240, 193, 0.08));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    footer {
+      padding: 34px 0 80px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 800px) {
+      .hero-inner, .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .contact-box {
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">Sami Aksoy</div>
+        <div class="nav-links">
+          <a href="#about">Hakkımda</a>
+          <a href="#skills">Yetenekler</a>
+          <a href="#projects">Projeler</a>
+          <a href="#contact">İletişim</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <div class="eyebrow">Merhaba, ben Sami</div>
+          <h1>Web geliştirici ve teknoloji meraklısı.</h1>
+          <p>
+            Front-end geliştirme, kullanıcı deneyimi ve temiz, modern web tasarımları
+            üzerine çalışıyorum. Tasarımı işlevsellikle birleştiren çözümler üretmeyi seviyorum.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#projects">Projelerim</a>
+            <a class="btn btn-secondary" href="#contact">İletişime Geç</a>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="avatar">👨‍💻</div>
+          <div>
+            <strong style="font-size:1.2rem;">Sami Aksoy</strong>
+            <div style="color: var(--muted); margin-top: 6px;">Frontend Developer</div>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>2+</strong>
+              <span>Yıl deneyim</span>
+            </div>
+            <div class="stat">
+              <strong>10+</strong>
+              <span>Projeler</span>
+            </div>
+            <div class="stat">
+              <strong>HTML</strong>
+              <span>CSS / JS</span>
+            </div>
+            <div class="stat">
+              <strong>UI</strong>
+              <span>UX odaklı</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">Hakkımda</h2>
+        <p class="section-subtitle">
+          Teknolojiye ilgim küçük yaşlardan beri başladı. Kod yazmayı, kullanıcı dostu arayüzler
+          tasarlamayı ve fikirleri web ortamına dönüştürmeyi seviyorum. Çalışmalarımda sade,
+          modern ve etkili çözümler üretiyorum.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">Yetenekler</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Frontend</h3>
+            <ul>
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>JavaScript</li>
+              <li>Responsive tasarım</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Tooling</h3>
+            <ul>
+              <li>Git / GitHub</li>
+              <li>VS Code</li>
+              <li>Figma</li>
+              <li>Deployment</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Yaklaşım</h3>
+            <ul>
+              <li>Kullanıcı odaklı tasarım</li>
+              <li>Temiz ve okunabilir kod</li>
+              <li>Hızlı ve ölçeklenebilir çözümler</li>
+              <li>Proje odaklı çalışma</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="chip-list">
+          <span class="chip">HTML</span>
+          <span class="chip">CSS</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">GitHub Pages</span>
+          <span class="chip">UI Design</span>
+          <span class="chip">Responsive</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Projeler</h2>
+        <div class="grid">
+          <div class="card project">
+            <span class="tag">Web Site</span>
+            <h3>Kişisel Portfolyo</h3>
+            <p>Modern ve sade bir kişisel web sitesi tasarımı. Kişisel bilgileri, yetenekleri ve projeleri tek sayfada sunar.</p>
+          </div>
+
+          <div class="card project">
+            <span class="tag">UI/UX</span>
+            <h3>Landing Page</h3>
+            <p>Yüksek dönüşüm hedefi olan, dikkat çekici görünümlü açılış sayfası tasarımı.</p>
+          </div>
+
+          <div class="card project">
+            <span class="tag">Frontend</span>
+            <h3>Teknik Çalışmalar</h3>
+            <p>Temiz kod yapısı ve kullanıcı deneyimi odaklı küçük ölçekli uygulama geliştirme çalışmaları.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <h2 class="section-title" style="margin-bottom: 8px;">İletişime geçelim</h2>
+            <p style="margin: 0; color: var(--muted);">
+              Projeler, iş birlikleri ve fikirler için bana ulaşabilirsiniz.
+            </p>
+          </div>
+
+          <div class="cta-row" style="margin-top: 0;">
+            <a class="btn btn-primary" href="mailto:sami@example.com">E-posta Gönder</a>
+            <a class="btn btn-secondary" href="https://github.com/SamiAksoy2133" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Sami Aksoy — Tüm hakları saklıdır.
+  </footer>
+</body>
+</html>
